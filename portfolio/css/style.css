@@ -1,4 +1,8 @@
 @charset "utf-8";
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     font-family: "Zen Maru Gothic", sans-serif;
     font-size: 16px;
@@ -23,6 +27,7 @@ body{
 .header_nav a{
     color: #ffffff;
     font-family: "Cause", cursive;
+    font-size: 18px;
 }
 .logo{
     width: 100px;
@@ -34,94 +39,100 @@ body{
     position: relative;
 }
 
-.mv-img{
-    top: 198px;
-    right: 170px; 
+.main-inner{
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    padding: 200px 0 100px;
+}
+
+
+.mv-img{    
     width: 678px;
-    position: absolute;  
 }
 
 .main-title{
     font-family: "League Script", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 100px;
+    font-size: clamp(20px, 9vw, 100px);
     color: #A2A7AB;
-    top: 219px;
-    left: 170px;
     margin-bottom: 32px;
-    position: absolute;
+    white-space: nowrap;
 }
+
 .mv-sub-title{
     font-size: 24px;
     color: #A2A7AB;
-    top: 351px;
-    left: 170px;
-    position: absolute;
 }
 
 .mv-wave{
-    position: absolute;
+    /* position: absolute;
     top: 583px;
-    left: 0;
+    left: 0; */
     width: 100%;
     z-index: -1;
 }
 
 .scroll {
-  position: relative;
-  flex-direction: row;
-  align-items: flex-start;
-  top: 695px;
+    flex-direction: row;
+    align-items: flex-start;
+    position: absolute;
+    left: 10.7%;
 }
+
 .scroll-text {
-  color: #053151;
-  font-size: 14px;
-  transform: rotate(90deg);
-  padding-left: 647px;
+    color: rgb(5, 49, 81);
+    font-size: 14px;
+    transform: rotate(90deg);
 }
 .scroll-border {
-  position: relative;
-  width: 10px;
-  height: 120px;
-  margin-left: 154px;
-  overflow: hidden;
+    position: absolute;
+    width: 10px;
+    height: 120px;
+    left: 50%;
+    top: 50px;
+    transform: translate(-50%);
 }
+
+
 .scroll-border::before {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 1px;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #053151;
-  margin: auto;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 120px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background: rgb(5, 49, 81);
+    margin: auto;
 }
+
 .scroll-border::after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  left: 0;
-  right: 0;
-  background: #053151;
-  border-radius: 50%;
-  animation: scrollbar 4.0s ease-in-out infinite;
-  margin: auto;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    left: 0px;
+    right: 0px;
+    background: rgb(5, 49, 81);
+    border-radius: 50%;
+    animation: 4s ease-in-out 0s infinite normal none running scrollbar;
+    margin: auto;
 }
+
 @keyframes scrollbar {
   0% {
-    bottom: 170px;
+    bottom: 120px;
     opacity: 0;
   }
   50% {
     opacity: 1;
   }
   100% {
-    bottom: -10px;
+    bottom: 0;
     opacity: 0;
   }
 }
@@ -170,7 +181,7 @@ body{
 
 .values-inner{
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 0 172px;
 }
 .values-contents {
     max-width: 1000px;
@@ -190,6 +201,7 @@ body{
 .values-contents:nth-child(3) {
     margin-left: auto;
     margin-top: -47px;
+    margin-bottom: 180px;
 }
 
 div.fluid {
@@ -214,7 +226,9 @@ div.fluid-line {
     margin: 0 auto;
     border-radius: 61% 39% 16% 84% / 57% 72% 28% 43%;
     animation: fluid-anim 10s infinite;
-    border: 1px #6C8EA5;
+    border-color: #6C8EA5;
+    border-width: 1px;
+    border-style: solid;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -232,27 +246,64 @@ div.fluid-line {
     87.5% { border-radius: 40% 60% 55% 45% / 50% 60% 40% 50%; }
     100%  { border-radius: 65% 35% 55% 45% / 55% 50% 55% 45%; }
 }
+.button-container{
+    text-align: right;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.button-container a{
+    position: relative;
+}
 
 .btn-text{
     font-size: 18px;
-    margin-top: 136px;
-    margin-bottom: 96px;
+    padding-right: 88px;
 }
 
-.circle{
+.circle {
     width: 50px;
     height: 50px;
-    color: #B7D5EA;
+    background-color: #b7d5ea;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    border-radius: 50%;
+    /* transition: transform 0.3s ease; */
+}
+/* .circle {
+  transform: translateX(-10px); 
+} */
+
+.circle::before {
+    position: absolute;
+    content: "";
+    width: 64px;
+    height: 1px;
+    background-color: #6c8ea5;
+    left: 0;
+    top: 25px;
+    border-radius: 1px;
+}
+
+.circle::after {
+    position: absolute;
+    content: "";
+    width: 9px;
+    height: 1px;
+    background-color: #6c8ea5;
+    transform: rotate(40deg);
+    top: 22px;
+    right: -15px;
+    border-radius: 1px;
 }
 
 #works{
     background-color: #E1EEFB;
     position: relative;
+    padding-bottom: 145px;
 }
 .works-wave{
-    position: absolute;
-    top: -81px;
-    left: 0;
     width: 100%;
 }
 
@@ -277,11 +328,11 @@ div.fluid-line {
     justify-content: center;
     align-items: center;
     gap: 55px;
+    padding-bottom: 50px;
 }
 
 .works-inner{
     width: 330px;
-    height: 257px;
 }
 
 .works-img{
@@ -294,22 +345,8 @@ div.fluid-line {
     margin-bottom: 50px;
 }
 
-
 #skill{
     background-color: #E1EEFB;
-    margin-top: 130px;
-}
-
-.btn-text{
-    font-size: 18px;
-    margin-top: 136px;
-    margin-bottom: 96px;
-}
-
-.circle{
-    width: 50px;
-    height: 50px;
-    color: #B7D5EA;
 }
 
 .skill-title{
@@ -327,8 +364,8 @@ div.fluid-line {
 }
 
 .box{
-    width: 240px;
-    height: 40px;
+    width: 30%;
+    padding: 20px 0;
     font-size: 20px;
     text-align: center;
     justify-content: center;
@@ -338,26 +375,27 @@ div.fluid-line {
 }
 
 .skill-container{
+    max-width: 800px;
+    width: 95%;
+    margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    gap: 40px 40px;
-}
-.btn-text{
-    font-size: 18px;
-    margin-top: 136px;
-    margin-bottom: 96px;
-}
-
-.circle{
-    width: 50px;
-    height: 50px;
-    color: #B7D5EA;
+    justify-content: space-between;
+    gap: 40px 4%;
 }
 
 #contact{
     background-color: #E1EEFB;
-    margin-top: 130px;
+    padding-top: 130px;
+}
+#contact .button-container{
+    text-align: center;
+    padding-top: 54px;
+    padding-bottom: 92px;
+}
+#contact .button-container a{
+    display: inline-block;
 }
 
 .contact-title{
@@ -376,41 +414,45 @@ div.fluid-line {
 
 .contact-text{
     line-height: 200%;
-    text-align: center;  
+    text-align: center; 
 }
+
 #footer{
     background-color: #B7D5EA;
     position: relative;
+    text-align: center;
 }
 
 .footer-wave{
-    position: absolute;
-    top: -160px;
-    left: 0;
     width: 100%;
 }
 
 .footer-logo{
     margin-bottom: 40px;
     width: 120px;
+    display: inline-block;
 }
 
 .footer-menu{
     align-items: center;
 }
 .footer-menu ul{
+    font-size: 18px;
     display: flex;
     gap: 32px;
+    padding-bottom: 72px;
+    justify-content: center;
 }
 
 .footer-menu a{
     color: #ffffff;
     font-family: "Cause", cursive;
-    font-size: 16px;
+    font-size: 18px;
 }    
 .copyright{
     font-size: 14px;
     color: #fff;
+    padding-bottom: 18px;
 }
 .to-top{
     position: fixed;
@@ -428,8 +470,6 @@ div.fluid-line {
 
 .aboutme{
     background-color: #E1EEFB;
-    height: 593px; 
-    width: 100%;
     position: relative;
 }
 
@@ -447,6 +487,7 @@ div.fluid-line {
 .aboutme-img{
     width: 300px;
     height: 280px;
+    padding-bottom: 100px;
 }
 .aboutme h2{
     font-family: "Cause", cursive;
@@ -464,9 +505,14 @@ div.fluid-line {
 }
 
 .aboutme-wave{
-    position: absolute;
-    top: 593px;
+    /* position: absolute;
+    top: 593px; */
     width: 100%;
+}
+
+.favorite .wrapper{
+    max-width: 650px;
+    margin: 0 auto;
 }
 
 .favorite h2{
@@ -474,53 +520,59 @@ div.fluid-line {
     font-size: 24px;
     padding-top: 324px;
     text-align: center;
+    padding-bottom: 92px;
+}
+
+.circle-group{
+    margin-top: -34px;
+
 }
 
 .favorite-img{
     width: 115px;
-    margin-left: 393px;
-    padding-top: 58px;
     z-index: -1;
-}
-.favorite-name{
-    font-size: 26px;
-    margin-top: -70px;
-    margin-left: 438px;
 }
 
 .favorite-name{
     font-size: 26px;
     margin-top: -70px;
-    margin-left: 438px;
+    margin-left: 42px;
 }
+
 
 .favorite-name2{
     font-size: 26px;
     margin-top: -70px;
-    margin-left: 428px;
+    margin-left: 32px;
 }
 
 .favorite-title{
     font-size: 20px;
     padding-left: 35px;
-    padding-bottom: 16px;
+    padding-bottom: 17px;
     border-bottom: 1px solid #053151;
-    width: 515px;
+    max-width: 515px;
+    width: 100%;
 }
 
 .wrapper{
     display: flex;
 }
 
+.favorite__text-area{
+    margin-left: -5px;
+}
+
 .favorite-text{
     line-height: 200%;
-    margin: 32px 0 32px 538px;
+    padding: 32px 35px 32px 35px;
+    border-bottom: 1px #053151 solid;
 }
 
 .contact-box{
     width: 400px;
     height: 80px;
-    border: 1px solid;
+    border: 1px #6C8EA5 solid;
     border-radius: 20px;
     background-color: #fff;
     padding-left: 208px;
@@ -529,7 +581,16 @@ div.fluid-line {
     align-items: center;
     margin: 0 auto;
     margin-top: 160px;
+    margin-bottom: 92px;
     box-sizing: border-box;
+    position: relative;
+}
+
+.contact-box img{
+    position: absolute;
+    width: 88px;
+    height: 80px;
+    left: -1px;
 }
 
 
@@ -546,13 +607,9 @@ div.fluid-line {
 .bunner-inner{
     max-width: 1000px;
     margin: 0 auto;
+
 }
 
-.bunner-wave img{
-    position: absolute;
-    top: 963px;
-    left: 0;
-}
 .category-title{
     font-family: "Cause", cursive;
     font-size: 24px;
@@ -576,6 +633,7 @@ div.fluid-line {
 }
 .buner-contents{
     display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
     max-width: 1000px;
     gap: 60px;
@@ -605,6 +663,7 @@ div.fluid-line {
 }
 .website-contents{
     display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
     max-width: 1000px;
     gap: 60px;
@@ -612,8 +671,6 @@ div.fluid-line {
 
 #other{
     background-color: #E1EEFB;
-    margin-top: 220px;
-    height: 848px;
     position: relative;
 }
 
@@ -637,17 +694,15 @@ div.fluid-line {
 }
 .other-contents{
     display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
     max-width: 1000px;
     gap: 60px;
 }
 
 .other-wave img{
-    position:absolute;
-    top:0;
-    left:0;
     width:100%;
-    transform: translateY(-100%);
+    /* transform: translateY(-100%); */
 }
 
 
@@ -672,6 +727,10 @@ div.fluid-line {
     border: 1px solid #E1EEFB;
 }
 
+.detail-wave img{
+    padding-top: 146px;
+}
+
 .detail-container{
     background-color: #E1EEFB;
     position: relative;
@@ -680,13 +739,12 @@ div.fluid-line {
 .detail-inner{
     max-width: 1000px;
     margin: 0 auto;
-    /* height: 970px; */
     position: relative;
+    padding-bottom: 82px;
 }
 
 .detail-document-title{
     font-size: 30px;
-    margin-top: 320px;
     margin-bottom: 66px;
 }
 
@@ -722,6 +780,7 @@ div.fluid-line {
 
 .tool-list .inner-title{
     width: 100%;
+    white-space: nowrap;
 }
 
 .overview-last{
@@ -744,7 +803,6 @@ div.fluid-line {
 }
 
 .detail-content-left{
-    /* width: 50%; */
     padding-right: 65px;
     border-right: 1px solid #B7D5EA;
 }
@@ -754,11 +812,7 @@ div.fluid-line {
 }
 
 .detail-wave img{
-    position:absolute;
-    top:0;
-    left:0;
     width:100%;
-    transform: translateY(-100%);
 }
 
 
@@ -780,6 +834,7 @@ div.fluid-line {
 
 .forpc-img-group{
     display: flex;
+    justify-content: center;
     gap: 68px;
     background-color: #fff;
     padding: 68px 56px;
@@ -806,6 +861,7 @@ div.fluid-line {
 }
 .formobile-img-group{
     display: flex;
+    justify-content: center;
     gap: 50px;
     background-color: #fff;
     padding: 40px 180px;
@@ -815,6 +871,8 @@ div.fluid-line {
     width: 180px;
     filter: drop-shadow(1px 1px 3px rgba(0,0,0,0.3));
 }
+
+/* contact page */
 
 .contact-page-inner{
     max-width: 800px;
@@ -879,7 +937,10 @@ textarea::placeholder{
 .contact-text p{
     text-align: center;
     line-height: 200%;
+    padding-bottom: 60px;
 }
+
+/* thanks page */
 
 .thanks-container h2{
     font-family: "Cause", cursive;
