@@ -47,6 +47,27 @@ body{
     width: 90%;
 }
 
+.main-title path{
+    fill: transparent;
+    stroke: #A2A7AB;
+    stroke-width: 2;
+}
+
+.main-title path{
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+
+    animation: handwriting 4s ease forwards;
+}
+
+@keyframes handwriting{
+
+    to{
+        stroke-dashoffset: 0;
+    }
+
+}
+
 
 .mv-img{    
     width: 678px;
