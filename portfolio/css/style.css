@@ -155,6 +155,9 @@ body{
     opacity: 0;
   }
 }
+
+
+
 .concept-title{
     font-family: "Cause", cursive;
     font-style: semibold;
@@ -428,7 +431,6 @@ div.fluid-line {
     font-family: "Cause", cursive;
     font-style: semibold;
     font-size: 32px;
-    padding-top: 130px;
     margin-bottom: 8px;
     text-align: center;
 }
@@ -443,6 +445,7 @@ div.fluid-line {
     text-align: center; 
     width: 496px;
     margin: 0 auto;
+    padding-bottom: 80px;
 }
 
 #footer{
@@ -627,28 +630,29 @@ div.fluid-line {
 /* ここから */
 
 .button-30 {
-    font-family: inherit;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 250px;
-    margin: 0 auto;
-    padding: .9em 2em;
-    border: 1px solid #6C8EA5;
-    border-radius: 25px;
-    background-color: #fff;
-    color: #053151;
-    font-size: 1em;
+  font-family: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 250px;
+  margin: 0 auto;
+  padding: 0.9em 2em;
+  border: 1px solid #6c8ea5;
+  border-radius: 50px;
+  background-color: #fff;
+  color: #053151;
+  font-size: 1em;
+  box-sizing: border-box;
 }
 
-.button-30-box{
-    margin-top: 100px;
-    margin-bottom: 92px;
+.button-30-box {
+  margin-top: 100px;
+  margin-bottom: 92px;
 }
 
 .button-30:hover {
-    animation: anima-button-30 1s;
+  animation: anima-button-30 1s;
 }
 
 @keyframes anima-button-30 {
@@ -697,9 +701,14 @@ div.fluid-line {
     width: 47%;
 }
 
-
-.bunner-img{
+.bunner-img {
     width: 100%;
+    transition: transform 0.8s ease;
+    transform: scale(1);
+}
+
+.bunner-img:hover {
+    transform: scale(1.05);
 }
 
 .bunner-img img{
@@ -729,8 +738,14 @@ div.fluid-line {
     width: 47%;
 }
 
-.website-img{
+.website-img {
     width: 100%;
+    transition: transform 0.8s ease;
+    transform: scale(1);
+}
+
+.website-img:hover {
+    transform: scale(1.05);
 }
 
 .website-img img{
@@ -763,9 +778,17 @@ div.fluid-line {
 .other-container {
     width: 47%;
 }
-.other-img{
+
+.other-img {
     width: 100%;
+    transition: transform 0.8s ease;
+    transform: scale(1);
 }
+
+.other-img:hover {
+    transform: scale(1.05);
+}
+
 .other-img img{
     border-radius: 8px;
 }
@@ -843,9 +866,12 @@ div.fluid-line {
     gap: 32px;
 }
 
-.tool-list{
+.tool-list {
     display: flex;
     gap: 20px;
+    row-gap: 0px;
+    width: calc(100% - 96px);
+    flex-wrap: wrap;
 }
 
 .inner-title{
@@ -853,11 +879,11 @@ div.fluid-line {
 }
 
 .inner-title{
-    width: 96px;
+    min-width: 96px;
 }
 
 .tool-list .inner-title{
-    width: 100%;
+    width: 45%;
     white-space: nowrap;
 }
 
@@ -923,6 +949,7 @@ div.fluid-line {
     padding: 68px 56px;
     width: 100%;
     box-sizing: border-box;
+    border-radius: 8px;
 }
 
 .forpc-img{
@@ -965,6 +992,7 @@ div.fluid-line {
     background-color:#fff;
     padding:40px 5%;
     margin-bottom:60px;
+    border-radius: 8px;
 }
 
 .formobaile-img img{
@@ -1048,9 +1076,9 @@ textarea::placeholder{
 
 .contact-text p{
     text-align: center;
+    text-align: left;
     line-height: 200%;
     padding-bottom: 60px;
-    max-width: 400px;
     margin: 0 auto;
 }
 .contact-btn{
@@ -1183,12 +1211,28 @@ body.fade-out {
 }
 
 @media screen and (max-width: 1100px) {
+
+    #header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 3.2%;
+    padding-left: 3.2%;
+    background-color: #B7D5EA;
+    }
+
+    .logo {
+    width: 80px;
+    }
+
     .hamburger{
         display: block;
         width: 54px;
         height: 54px;
         position: absolute;
-        top: 20px;
+        /* top: 20px; */
         right: 38px;
     }
     .header_nav{
@@ -1297,6 +1341,8 @@ body.fade-out {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
+        gap: 50px;
+
     }
 
     .sp-logo{
@@ -1335,6 +1381,7 @@ body.fade-out {
 
 @media screen and (max-width: 768px){
     /* top-page */
+
     body{
         font-size:14px;
     }
@@ -1464,7 +1511,7 @@ body.fade-out {
 
     div.fluid,
     div.fluid-line{
-        width: 300px;
+        width: 360px;
     }
 
     .button-container{
@@ -1763,7 +1810,7 @@ body.fade-out {
     .favorite-title{
         font-size: clamp(16px, 1vw, 20px);
         padding-left: 30px;
-        padding-bottom: 14px;
+        padding-bottom: 21px;
         border-bottom: 1px solid #053151;
         /* max-width: 515px; */
     }
@@ -1869,6 +1916,7 @@ body.fade-out {
         max-width: 1000px;
         margin: 0 auto;
         width: 90%;
+        padding-top: 75px;
     }
     .other-container {
         width: 100%;
@@ -1907,6 +1955,7 @@ body.fade-out {
     .detail-document-title{
         font-size:18px;
         margin-bottom:40px;
+        padding-top: 84px;
     }
 
     .detail-content{
@@ -2003,7 +2052,7 @@ body.fade-out {
 
 .contact-page-inner h2{
     font-size: 18px;
-    margin-top: 32px;
+    margin-top: 52px;
     margin-bottom: 32px;
     text-align: center;
 }
@@ -2079,11 +2128,11 @@ textarea::placeholder{
 
 .contact-btn button{
     display: inline-block;
-    padding: 20px 60px;
+    padding: 18px 40px;
     background-color: #E1EEFB;
     color: #053151;
     font-family: inherit;
-    font-size: 16px;
+    font-size: 14px;
     border: none;
     border-radius: 40px;
     transition: 0.3s;
@@ -2198,4 +2247,18 @@ body.fade-out {
 #thanks-container{
     position: relative;
 }
+}
+
+
+
+/* フェードイン */
+.fadeIn_up {
+  opacity: 0;
+  transform: translate(0, 50%);
+  transition: 1.5s;
+}
+
+.fadeIn_up.is-show {
+  transform: translate(0, 0);
+  opacity: 1;
 }

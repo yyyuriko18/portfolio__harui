@@ -78,3 +78,22 @@ opens.forEach((open, index) => {
     dialogs[index].close();
   });
 });
+
+
+
+$(function () {
+  $(window).on("scroll", function () {
+    $(".fadeIn_up").each(function () {
+      const target = $(this).offset().top;
+      const scroll = $(window).scrollTop();
+      const windowHeight = $(window).height();
+
+      if (scroll > target - windowHeight + 200) {
+        $(this).addClass("is-show");
+      }
+    });
+  });
+
+  // ページを開いた時にも判定
+  $(window).trigger("scroll");
+});
