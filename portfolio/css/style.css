@@ -47,25 +47,46 @@ body{
     width: 90%;
 }
 
-.main-title path{
-    fill: transparent;
-    stroke: #A2A7AB;
-    stroke-width: 2;
+.main-title svg{
+    width: 500px;
 }
 
-.main-title path{
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
 
-    animation: handwriting 4s ease forwards;
+
+/* メインタイトルの文字（輪郭のかたち） */
+.main-title .mt-letters path {
+  fill: transparent;
+  stroke: #a2a7ab;
+  stroke-width: 2;
 }
 
-@keyframes handwriting{
+/* 文字の上をなぞる1本のガイド線をマスクにして、
+   左の文字から順に手書きされるように見せる */
+.main-title .handwriting-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 16;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  /* pathLength="1" なので 0〜1 で進行を指定できる。
+     隙間を長めにとって、開始前に線の終点が点として見えるのを防ぐ */
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1;
+  animation: handwriting 3.6s linear 0.3s forwards;
+}
 
-    to{
-        stroke-dashoffset: 0;
-    }
+@keyframes handwriting {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 
+/* アニメーションを控えめにする設定の場合は最初から表示 */
+@media (prefers-reduced-motion: reduce) {
+  .main-title .handwriting-line {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
 }
 
 
@@ -73,7 +94,9 @@ body{
     width: 678px;
 }
 
-.main-title{
+
+
+/* .main-title{
     font-family: "League Script", cursive;
     font-weight: 400;
     font-style: normal;
@@ -81,7 +104,7 @@ body{
     color: #A2A7AB;
     margin-bottom: 32px;
     white-space: nowrap;
-}
+} */
 
 .mv-sub-title{
     font-size: 24px;
@@ -277,7 +300,7 @@ div.fluid-line {
 }
 .button-container a{
     position: relative;
-        padding: 20px 0;
+    padding: 20px 0;
     display: block;
 }
 
@@ -427,6 +450,10 @@ div.fluid-line {
     padding-top: 130px;
 }
 
+#contact .footer-wave{
+    margin-top: 80px;
+}
+
 .contact-title{
     font-family: "Cause", cursive;
     font-style: semibold;
@@ -452,6 +479,7 @@ div.fluid-line {
     background-color: #B7D5EA;
     position: relative;
     text-align: center;
+    margin-top: -2px;
 }
 
 .footer-wave{
@@ -846,6 +874,7 @@ div.fluid-line {
 .detail-document-title{
     font-size: 30px;
     margin-bottom: 66px;
+    padding-top: 80px;
 }
 
 .detail-box{
@@ -1107,11 +1136,13 @@ textarea::placeholder{
 
 #footer{
     position: relative;
+    margin-top: -2px;
 }
 
 .pre-footer-wave{
     position: absolute;
     z-index: -1;
+    width: 100%;
 }
 
 
@@ -1227,14 +1258,65 @@ body.fade-out {
     width: 80px;
     }
 
+    .main-title svg {
+    width: 450px;
+    }
+
+    .mv-sub-title{
+    font-size: 20px;
+    text-align: left;
+    color: #A2A7AB;
+    padding-bottom: 36px;
+    }
+
+
+
     .hamburger{
         display: block;
-        width: 54px;
+        width: 36px;
         height: 54px;
         position: absolute;
         /* top: 20px; */
         right: 38px;
     }
+/* ここから */
+
+/* 初期状態：オーバーレイは非表示 */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒 */
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 98; /* メニューより下、コンテンツより上に設定 */
+}
+
+/* メニューが開いたとき（is-openクラスが付与されたとき） */
+body.is-open .menu-overlay {
+  visibility: visible;
+  opacity: 1;
+}
+
+.header_nav-sp {
+  position: fixed;
+  top: 0;
+  right: -300px; /* 初期位置は画面外 */
+  width: 300px;
+  height: 100%;
+  background-color: #8f8f8f56;
+  transition: right 0.3s;
+  z-index: 99;
+}
+
+body.is-open .menu-content {
+  right: 0; /* 画面内にスライド */
+}
+/* ここまで */
+
     .header_nav{
         display: none;
     }
@@ -1269,6 +1351,13 @@ body.fade-out {
         bottom: 13px;
         transition: 0.3s;
     }
+
+    .hamburger {
+    position: relative;
+    z-index: 30;
+    }
+
+
     .open span{
         background-color: transparent;
     }
@@ -1289,15 +1378,16 @@ body.fade-out {
         left: 0;
         height: 100vh;
         width: 100%;
-        background-color: #E1EEFB;
-        z-index: 10;
+        z-index: 20;
     }
     .hamburger{
         z-index: 9999;
+        cursor: pointer;
     }
 
     .header_nav-sp a{
         font-size: 18px;
+        white-space: nowrap;
     }
 
     .header_nav-sp ul{
@@ -1305,7 +1395,7 @@ body.fade-out {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        padding: 100px 40px 0 0;
+        padding: 100px 20px 0 0;
     }
 
     .header_nav-sp li:nth-child(1){
@@ -1337,11 +1427,13 @@ body.fade-out {
         margin-right: 47px;
     }
 
+
     .menu-inner{
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
         gap: 50px;
+        background-color: #e1eefb;
 
     }
 
@@ -1350,9 +1442,11 @@ body.fade-out {
         margin-left: 50px;
         width: 100px;
     }
+
 }
 
-@media screen and (max-width: 880px){
+
+@media screen and (max-width: 880px){   
 
     .values-contents {
         width: clamp(300px, 45vw, 300px);
@@ -1401,32 +1495,21 @@ body.fade-out {
         order: 2;
     }
 
-    .main-title{
-        font-size: clamp(40px, 15vw, 70px);
-        text-align: left;
-        margin-bottom: 8px;
+   .main-title svg {
+    width: 100%;
     }
+
 
     .mv-sub-title{
-        font-size: clamp(16px, 10vw, 24px);
-        /* font-size: 18px; */
+        font-size: 16px;
         text-align: left;
-        margin-bottom: 24px;
+        color: #A2A7AB;
+        padding-bottom: 36px;
     }
 
-    .main-title{
-        font-family: "League Script", cursive;
-        font-weight: 400;
-        font-style: normal;
-        font-size: clamp(20px, 9vw, 100px);
-        color: #A2A7AB;
-        margin-bottom: 32px;
+    .header_nav-sp a{
+        font-size: 18px;
         white-space: nowrap;
-    }  
-
-    .mv-sub-title{
-        font-size: 24px;
-        color: #A2A7AB;
     }
 
     .scroll-border {
@@ -1511,18 +1594,34 @@ body.fade-out {
 
     div.fluid,
     div.fluid-line{
-        width: 360px;
+        width: 300px;
+    }
+
+    .values-contents:nth-child(2){
+        margin-top: 200px;
+    }
+
+    .values-contents:nth-child(3){
+        margin-bottom: 80px;
     }
 
     .button-container{
     text-align: right;
-    max-width: 310px;
+    width: 90%;
     margin: 0 auto;
     }
+
+    #works .button-container a {
+        position: relative;
+        padding: 20px 0;
+        margin-top: 0;
+        display: block;
+    }
+
     .button-container a{
         position: relative;
         padding: 20px 0;
-        margin-top: 37px;
+        /* margin-top: 37px; */
         display: block;
     }
 
@@ -1679,12 +1778,16 @@ body.fade-out {
         font-size: clamp(14px, 1vw, 16px);
         line-height: 200%;
         text-align: left; 
+        padding-bottom: 40px;
     }
+
+    
 
     #footer{
     background-color: #B7D5EA;
     position: relative;
     text-align: center;
+    margin-top: -2px;
     }
 
     .footer-wave{
@@ -1997,6 +2100,10 @@ body.fade-out {
         line-height:200%;
     }
 
+    .tool-list .inner-title{
+        width: 100px;
+    }
+
     .inner-title{
         font-size:14px;
     }
@@ -2021,7 +2128,13 @@ body.fade-out {
         margin: 0 auto;
         width: 90%;
         gap:16px;
+        padding-bottom: 50px;
     }
+
+    .dialog{
+        width: 90%;
+    }
+
 
     .open-button{
         font-family: inherit;
@@ -2033,10 +2146,14 @@ body.fade-out {
         margin: 0 auto;
         padding: 12px 16px;
         border: 1px solid #6C8EA5;
-        border-radius: 20px;
+        border-radius: 30px;
         background-color: #fff;
         color: #053151;
         font-size: 14px;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
 }
 
     .open-button:hover {
@@ -2147,6 +2264,7 @@ textarea::placeholder{
 
 #footer{
     position: relative;
+    margin-top: -2px;
 }
 
 .pre-footer-wave{
@@ -2192,8 +2310,8 @@ textarea::placeholder{
 }
 
 #thanks-container .circle span {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     background-color: #b7d5ea;
     position: absolute;
     top: 65%;
@@ -2247,8 +2365,21 @@ body.fade-out {
 #thanks-container{
     position: relative;
 }
+
+
+.close-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 60px;
 }
 
+.dialog{
+    border: none;
+}
 
 
 /* フェードイン */

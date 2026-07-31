@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <header id="header">
+     <header id="header">
         <h1 class="logo">
             <a href="./index.html">
                 <img src="./img/pc/pc_header_logo.png" alt="ebb&flowロゴ">
@@ -29,8 +29,32 @@
                 <li><a href="./contact.html">contact</a></li>
             </ul>
         </nav>
-    </header>
+            <div class="hamburger">
+            <span></span>
+            </div>
 
+        <nav class="header_nav-sp">
+            <div class="menu-inner">
+            <h1 class="sp-logo">
+            <a href="./index.html">
+                <img src="./img/sp/sp-menu-logo.png" alt="ebb&flowロゴ">
+            </a>
+            </h1>
+            <ul>
+                <li><a href="./index.html#concept">concept</a></li>
+                <li><a href="./index.html#values">values</a></li>
+                <li><a href="./about-me.html">about me</a></li>
+                <li><a href="./works.html">works</a></li>
+                <li><a href="./index.html#skill">skill</a></li>
+                <li><a href="./contact.html">contact</a></li>
+            </ul>
+            </div>
+            <div class="sp-wave">
+                <img src="./img/sp/sp-menu-wave.png" alt="波イメージ">
+            </div>
+        </nav>
+    </header>
+        <div class="menu-overlay"></div>
     <section class="detail">
         <h2>bunner</h2>
         <div class="section-img">
@@ -85,8 +109,8 @@
             <p class="detail-title">デザインのポイント</p>
         </div>
         <p class="detail-text">
-           ファーストビューには、ナチュラルで健康的な美しさを感じさせる女性の写真を使用し、「新しい自分との出会い」や前向きな気持ちになれる
-           美容院を表現しました。</p>
+           ファーストビューには、ナチュラルで健康的な美しさを感じさせる女性の写真を使用し、「新しい自分との出会い」や「前向きな気持ちになれる」
+           美容院のイメージを表現しました。</p>
         <p class="detail-text">
             ロゴの六角形モチーフをサイト全体に取り入れ、写真も六角形に切り抜くことで、統一感のあるデザインに仕上げました。</p>
         <p class="detail-text">
@@ -103,17 +127,22 @@
                 <button class="open-button">desktop view</button>
             </div>
             <dialog class="dialog">
-                <a href="./img/sp/pc-view-website-1.jpg">HPデザイン</a>
-                <button class="close-button"><a href="./img/sp/close-btn.png">閉じる</a></button>
+                <a href=""><img src="./img/sp/pc-view-website-1.jpg" alt=""></a>
+                <button class="close-button">
+                    <img src="./img/sp/close-btn.png" alt="">
+                </button>
             </dialog>
+      
 
 
             <div class="open">
                 <button class="open-button">mobile view</button>
             </div>
             <dialog class="dialog">
-                <a href="./img/sp/sp-view-website-1.jpg">SPデザイン</a>
-                <button class="close-button"><a href="./img/sp/close-btn.png">閉じる</a></button>
+                <a href=""><img src="./img/sp/sp-view-website-1.jpg" alt=""></a>
+                <button class="close-button">
+                    <img src="./img/sp/close-btn.png" alt="">
+                </button>
             </dialog>
         </div>
         
@@ -121,7 +150,7 @@
 
     <section class="forpc-container">
         <div class="forpc-inner">
-            <h3>For PC</h3>
+            <h3 fadeIn_up>For PC</h3>
             <div class="forpc-img-group fadeIn_up">
                 <div class="forpc-img">
                 <img src="./img/pc/pc-view-website-1-1.jpg" alt="美容院PC-1">
@@ -134,7 +163,7 @@
     </section>
     <section class="formobaile-container">
         <div class="formobile-inner">
-            <h3>For Mobile</h3>
+            <h3 fadeIn_up>For Mobile</h3>
             <div class="formobile-img-group fadeIn_up">
                 <div class="formobaile-img">
                 <img src="./img/pc/sp-view-website-1-1.jpg" alt="美容院SP-1">
@@ -170,13 +199,13 @@
         </a> 
         <div class="footer-menu">
             <ul>
-                <li><a href="#concept">concept</a></li>
-                <li><a href="#values">values</a></li>
+                <li><a href="./index.html#concept">concept</a></li>
+                <li><a href="./index.html#values">values</a></li>
                 <li><a href="./about-me.html">about me</a></li>
                 <li><a href="./works.html">works</a></li>
-                <li><a href="#skill">skill</a></li>
+                <li><a href="./index.html#skill">skill</a></li>
                 <li><a href="./contact.html">contact</a></li>
-                <li><a href=""><img src="./img/pc/pc_insta_logo.png" alt=""></a></li>
+                <!-- <li><a href=""><img src="./img/pc/pc_insta_logo.png" alt=""></a></li> -->
             </ul>
             <p class="copyright">© 2026 ebb & flow design</p>
         </div>

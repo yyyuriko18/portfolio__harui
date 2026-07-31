@@ -55,14 +55,39 @@ setTimeout(() => {
     });
 }
 
-
 // ハンバーガー
-$(function(){
-        $(".hamburger").click(function(){
-            $(".hamburger").toggleClass("open");
-            $(".header_nav-sp").fadeToggle();
-        });
+
+$(function () {
+  const $hamburger = $(".hamburger");
+  const $navSp = $(".header_nav-sp");
+
+  function closeMenu() {
+    $hamburger.removeClass("open");
+    $navSp.stop(true, true).fadeOut();
+  }
+
+  $hamburger.on("click", function () {
+    $hamburger.toggleClass("open");
+    $navSp.stop(true, true).fadeToggle();
+  });
+
+  // メニュー内（リンクや余白）を押したら閉じる
+  $navSp.on("click", function () {
+    closeMenu();
+  });
+  
+
+  // メニュー・ハンバーガー以外（body側）を押したら閉じる
+  $(document).on("click", function (e) {
+    if (!$hamburger.hasClass("open")) return;
+    if ($(e.target).closest(".header_nav-sp, .hamburger").length) return;
+    closeMenu();
+  });
 });
+
+const menuBtn = document.querySelector('.menu-btn');
+const overlay = document.querySelector('.menu-overlay');
+
 
 // モーダル
 const opens = document.querySelectorAll(".open-button");
