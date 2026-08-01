@@ -52,24 +52,19 @@ body{
 }
 
 
-
-/* メインタイトルの文字（輪郭のかたち） */
 .main-title .mt-letters path {
   fill: transparent;
   stroke: #a2a7ab;
   stroke-width: 2;
 }
 
-/* 文字の上をなぞる1本のガイド線をマスクにして、
-   左の文字から順に手書きされるように見せる */
+
 .main-title .handwriting-line {
   fill: none;
   stroke: #fff;
   stroke-width: 16;
   stroke-linecap: round;
   stroke-linejoin: round;
-  /* pathLength="1" なので 0〜1 で進行を指定できる。
-     隙間を長めにとって、開始前に線の終点が点として見えるのを防ぐ */
   stroke-dasharray: 1 2;
   stroke-dashoffset: 1;
   animation: handwriting 3.6s linear 0.3s forwards;
@@ -81,7 +76,6 @@ body{
   }
 }
 
-/* アニメーションを控えめにする設定の場合は最初から表示 */
 @media (prefers-reduced-motion: reduce) {
   .main-title .handwriting-line {
     animation: none;
@@ -93,18 +87,6 @@ body{
 .mv-img{    
     width: 678px;
 }
-
-
-
-/* .main-title{
-    font-family: "League Script", cursive;
-    font-weight: 400;
-    font-style: normal;
-    font-size: clamp(20px, 9vw, 100px);
-    color: #A2A7AB;
-    margin-bottom: 32px;
-    white-space: nowrap;
-} */
 
 .mv-sub-title{
     font-size: 24px;
@@ -1163,7 +1145,6 @@ textarea::placeholder{
 
 #thanks-container{
     background-color: #F6FBFF;
-    padding-top: 130px;
 }
 
 #thanks-container .button-container{
@@ -1276,26 +1257,22 @@ body.fade-out {
         width: 36px;
         height: 54px;
         position: absolute;
-        /* top: 20px; */
         right: 38px;
     }
-/* ここから */
 
-/* 初期状態：オーバーレイは非表示 */
 .menu-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒 */
+  background-color: rgba(0, 0, 0, 0.5); 
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s, visibility 0.3s;
-  z-index: 98; /* メニューより下、コンテンツより上に設定 */
+  z-index: 98; 
 }
 
-/* メニューが開いたとき（is-openクラスが付与されたとき） */
 body.is-open .menu-overlay {
   visibility: visible;
   opacity: 1;
@@ -1304,7 +1281,7 @@ body.is-open .menu-overlay {
 .header_nav-sp {
   position: fixed;
   top: 0;
-  right: -300px; /* 初期位置は画面外 */
+  right: -300px;
   width: 300px;
   height: 100%;
   background-color: #8f8f8f56;
@@ -1876,7 +1853,6 @@ body.is-open .menu-content {
     }
 
     .favorite .wrapper{
-        /* max-width: 650px; */
         margin: 0 auto 150px;
         width: 90%;
     }
@@ -1915,7 +1891,6 @@ body.is-open .menu-content {
         padding-left: 30px;
         padding-bottom: 21px;
         border-bottom: 1px solid #053151;
-        /* max-width: 515px; */
     }
 
     .wrapper{
@@ -2154,18 +2129,13 @@ body.is-open .menu-content {
         cursor: pointer;
     }
 
-}
+
 
     .open-button:hover {
         animation: anima-button-30 1s;
     }
 /* コンタクト*/
 
-
-/* .contact-page-inner{
-    max-width: 800px;
-    margin: 0 auto;
-} */
 
 .contact-page-inner h2{
     font-size: 18px;
@@ -2392,4 +2362,5 @@ body.fade-out {
 .fadeIn_up.is-show {
   transform: translate(0, 0);
   opacity: 1;
+}
 }
