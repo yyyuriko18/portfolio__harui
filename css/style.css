@@ -2336,6 +2336,10 @@ body.fade-out {
     position: relative;
 }
 
+.dialog{
+    border: none;
+}
+}
 
 .close-button {
     position: fixed;
@@ -2347,9 +2351,7 @@ body.fade-out {
     width: 60px;
 }
 
-.dialog{
-    border: none;
-}
+
 
 
 /* フェードイン */
@@ -2362,5 +2364,4 @@ body.fade-out {
 .fadeIn_up.is-show {
   transform: translate(0, 0);
   opacity: 1;
-}
 }
