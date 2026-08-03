@@ -550,6 +550,11 @@ div.fluid-line {
     width: 64%;
 }
 
+.aboutme-img img{
+    border-radius: 10px;
+}
+
+
 .aboutme-img{
     width: 30%;
     padding-bottom: 100px;
@@ -1846,10 +1851,14 @@ body.is-open .menu-content {
         width: 100%;
     }
 
+    .aboutme-img img{
+        border-radius: 10px;
+    }
+
     .aboutme-img{
         margin: 0 auto;
         /* padding-bottom: 190px; */
-        width: 80%;
+        width: 80%;       
     }
     .aboutme h2{
         font-family: "Cause", cursive;
